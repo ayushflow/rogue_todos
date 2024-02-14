@@ -1,5 +1,6 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'home_page_model.dart';
@@ -54,7 +55,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
           backgroundColor: FlutterFlowTheme.of(context).primary,
           automaticallyImplyLeading: false,
           title: Text(
-            'Page Title',
+            'Rogue Todos',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Readex Pro',
                   color: Colors.white,
@@ -62,14 +63,57 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                 ),
           ),
           actions: const [],
-          centerTitle: false,
+          centerTitle: true,
           elevation: 2.0,
         ),
-        body: const SafeArea(
+        body: SafeArea(
           top: true,
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            children: [],
+          child: Container(
+            width: MediaQuery.sizeOf(context).width * 1.0,
+            height: MediaQuery.sizeOf(context).height * 1.0,
+            decoration: const BoxDecoration(),
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                FFButtonWidget(
+                  onPressed: () async {
+                    // showInfoMessage
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text(
+                          'A rogue todo experience is coming soon. Stay tuned!',
+                          style: TextStyle(
+                            color: FlutterFlowTheme.of(context).accent4,
+                          ),
+                        ),
+                        duration: const Duration(milliseconds: 4000),
+                        backgroundColor: FlutterFlowTheme.of(context).warning,
+                      ),
+                    );
+                  },
+                  text: 'Go Rogue with Todos',
+                  options: FFButtonOptions(
+                    height: 40.0,
+                    padding:
+                        const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                    iconPadding:
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                    color: FlutterFlowTheme.of(context).primary,
+                    textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                          fontFamily: 'Inter',
+                          color: Colors.white,
+                        ),
+                    elevation: 3.0,
+                    borderSide: const BorderSide(
+                      color: Colors.transparent,
+                      width: 1.0,
+                    ),
+                    borderRadius: BorderRadius.circular(8.0),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
